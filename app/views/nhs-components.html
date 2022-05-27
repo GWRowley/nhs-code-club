@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  NHS components - Code club
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/introduction",
+    text: "Introduction"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        NHS components
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom ">
+          Using components and custom SASS/CSS
+        </span>
+      </h1>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "/introduction",
+            text: "Introduction"            
+          },
+          {
+            href: "/nhs-components",
+            text: "NHS components",
+            current: "true"
+          },
+          {
+            href: "/modifying-components",
+            text: "Modifying components"
+          },
+          {
+            href: "/custom-components",
+            text: "Custom components"
+          }
+        ]
+      }) }}
+
+      <p>
+        [Page content goes here]
+      </p>
+
+      {{ pagination({
+        "previousUrl": "/introduction",
+        "previousPage": "Introduction",
+        "nextUrl": "/modifying-components",
+        "nextPage": "Modifying components"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
