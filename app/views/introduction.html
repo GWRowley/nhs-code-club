@@ -63,6 +63,50 @@
       </code></pre>
       <br>
 
+      <h2>CSS Basics</h2>
+
+      <p>In the above example, we mentioned classes. Classes are one of the ways we can target an element on a page and apply a style to it.</p>
+      <p>However, this is not the only way we can style elements. We can also target specific HTML tags, and also the ID of an object.</p>
+      <p>As a general rule, you should only use ID once per page - maybe for a header, or a footer, classes on the otherhand can be used many times on a page for example you might have a class that adds a width of 100px to an element, and you might want multiple elements to be 100px in width, so you would apply the relevant class name to each of the elements.</p>
+      
+      <h3>Examples</h3>
+
+      <pre><code>
+        p {
+          color: red;
+        }
+      </code></pre> 
+
+      <p>The above will target all paragraph tags (<code>&lt;p&gt;</code>) and turn them red.</p>
+
+      <pre><code>
+        p.red {
+          color: red;
+        }
+      </code></pre> 
+
+      <p>This example, will only target paragraph tags with the class of red applied (<code>&lt;p class="red"&gt;</code>)</p>
+
+      <pre><code>
+        #id {
+          color: red;
+        }
+
+        .class {
+          color: red;
+        }
+      </code></pre> 
+
+      <p>This final example shows how you write CSS for an ID vs how you write CSS for a class. One starts with <code>#</code> and the other with a <code>.</code> character.</p>
+
+      <h3>Best practices</h3>
+
+      <p>Whilst prototypes are meant to be 'rough' it is still a good idea to get into the habbit of naming your classes something relevant.</p>
+
+      <p>For example, if you are building your own component (something we will look at later) a class with name of <code>class1</code> could mean anything, whereas a class with the name of <code>header-title</code> is much more relevant and easier to identify if you ever need to make any adjustments.</p>
+      
+      <p>Furthermore, when it comes to naming classes, the NHS uses something called BEM. Which stands for block, element, modifier. Whilst probably not essential for protoytyping purposes it is something I would highly recommend learning for the reasons above. I personally found this <a href="https://codeburst.io/understanding-css-bem-naming-convention-a8cca116d252" target="_blank">blog post</a> (opens in a new tab) simple to understand and learn BEM for beginners.</p>
+
       <h2>SASS vs CSS</h2>
 
       <p>SASS is essentially a 'more powerful' version of CSS. SASS being a pre-processor of CSS. Syntax wise they are mostly the same, with the exception of 'powerful' features in SASS such as variables. SASS also allows you to 'nest' your code, which in my opinion leads to quicker development, cleaner code, and easier to maintain.</p>
