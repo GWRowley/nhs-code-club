@@ -7462,3 +7462,13 @@ b {
     line-height: 1.2;
   }
 }
+
+pre {
+  background-color: #fff;
+  border: 1px solid #aeb7bd;
+}
+
+p code {
+  color: #d14;
+  font-weight: 700;
+}

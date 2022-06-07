@@ -44,10 +44,75 @@
         ]
       }) }}
 
+      <h2>What is CSS?</h2>
+
       <p>
-        [Page content goes here]
+        CSS stands for cascading style sheets, and in the simplest terms if I use the analogy of a website being a house, the brick work and beams are the HTML (the structure of the house / page); CSS is the paint work and furnishings, essentially what 'makes the house a home'. CSS is what makes a website 'look nice'.
       </p>
 
+      <p>The cascading part - again in simple terms means that it reads from top to bottom, cascading down. Meaning if you have two classes of the same name, the property at 'the bottom' will be used. Using the example below if you applied the class <code>nhsuk-example-text</code> to a paragraph tag, the colour of the text would be blue as the bottom version of the class has overwritten the one above.</p>
+
+      <pre><code>
+      .nhsuk-example-text {
+        color: green;
+      }
+
+      .nhsuk-example-text {
+        color: blue;
+      }
+      </code></pre>
+      <br>
+
+      <h2>SASS vs CSS</h2>
+
+      <p>SASS is essentially a 'more powerful' version of CSS. SASS being a pre-processor of CSS. Syntax wise they are mostly the same, with the exception of 'powerful' features in SASS such as variables. SASS also allows you to 'nest' your code, which in my opinion leads to quicker development, cleaner code, and easier to maintain.</p>
+
+      <p>Another major difference between the two is the file extension, SASS uses .scss whereas CSS uses the .css extension.</p>
+
+      <p>When you write and save your SASS file, what essentially happens is (depending on what task runner / npm package used) the SASS is then converted to CSS, and also often concatenated into one file, and minified for better performance.</p>
+
+      <p>Later on in this 'tutorial' will be details on creating your own SASS file, and more detail on the above.</p>
+
+      <p>Using the house analogy again from earlier, here is a very basic example of SASS vs CSS, firstly we will look at how you might style a house using CSS:</p>
+
+      <pre><code>
+      .house {
+        background-color: #FFA500;
+      }
+
+      .house .door {
+        background-color: #000;
+      }
+
+      .house .windows {
+        background-color: #FFF;
+      }
+      </code></pre>
+
+      <p>If you were to write the above example in SASS you might write something like this:</p>
+
+      <pre><code>
+      $orange: #FFA500;
+      $black: #000;
+      $white: #FFF;
+
+      .house {
+        background-color: $orange;
+        
+        .door {
+          background-color: $black;
+        }
+
+        .windows {
+          background-color: $white;
+        }
+      }
+      </code></pre>
+
+      <p>With the use of variables in the second example for the colours, maybe later on you wanted to add a garage, you wouldn't have to remember the hex code for the colours simply the variable name, which in the long term makes developing quicker and easier.</p>
+      <p>The nesting element of SASS I believe as it's visually similar to how you would write the HTML makes it easy to follow, and target elements for styling easier.</p>
+      
+      <p>For a much more in depth and better explained version of the above I would recommmend looking at the <a href="https://sass-lang.com/guide" target="_blank">SASS official guide</a> (opens in a new tab). Some of the other features will also be discussed further on in this tutorial.</p>
       {{ pagination({
         "nextUrl": "/nhs-components",
         "nextPage": "NHS components"
