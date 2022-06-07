@@ -7463,12 +7463,119 @@ b {
   }
 }
 
+/* ==========================================================================
+   #TIMELINE
+   ========================================================================== */
+.nhsuk-timeline {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.nhsuk-timeline:before {
+  background-color: #005eb8;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 10px;
+  width: 5px;
+}
+
+.nhsuk-timeline--full {
+  margin-bottom: 0;
+}
+.nhsuk-timeline--full:before {
+  height: calc(100% - 75px);
+}
+
+.nhsuk-timeline__item {
+  padding-bottom: 30px;
+  padding-left: 20px;
+  position: relative;
+}
+.nhsuk-timeline__item:before {
+  background-color: #005eb8;
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  top: 10px;
+  width: 15px;
+}
+
+.nhsuk-timeline__title {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  display: inline;
+}
+
+.nhsuk-timeline__byline {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 19px;
+  color: #4c6272;
+  display: inline;
+  margin: 0;
+}
+
+.nhsuk-timeline__date {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.nhsuk-timeline__description {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   #TIMELINE DOCUMENT STYLES – FOR BACKWARDS COMPATIBILITY
+   ========================================================================== */
+.nhsuk-timeline__documents {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.nhsuk-timeline__document-item {
+  margin-bottom: 5px;
+}
+.nhsuk-timeline__document-item:last-child {
+  margin-bottom: 0;
+}
+
+.nhsuk-timeline__document-icon {
+  float: left;
+  margin-top: 4px;
+  margin-right: 4px;
+  fill: currentColor;
+}
+@media screen and (forced-colors: active) {
+  .nhsuk-timeline__document-icon {
+    fill: linkText;
+  }
+}
+
+.nhsuk-timeline__document-link {
+  background-repeat: no-repeat;
+  background-size: 20px 16px;
+  background-position: 0 50%;
+  padding-left: 25px;
+}
+.nhsuk-timeline__document-link:focus {
+  color: #212b32;
+}
+
 pre {
   background-color: #fff;
   border: 1px solid #aeb7bd;
 }
 
-p code {
+p code,
+li code {
   color: #d14;
   font-weight: 700;
 }

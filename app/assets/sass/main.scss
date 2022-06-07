@@ -4,6 +4,7 @@
 // Components that are not in the NHS.UK frontend library
 @import 'components/list-border';
 @import 'components/related-nav';
+@import 'components/timeline';
 
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below...
@@ -14,7 +15,8 @@ pre {
     border: 1px solid #aeb7bd;
 }
 
-p code {
+p code,
+li code {
     color: #d14;
     font-weight: 700;
 }

@@ -50,16 +50,357 @@
         ]
       }) }}
 
-      <p>
-        [Page content goes here]
-      </p>
+	<p>
+	There may be times when you are building a prototype and you want to add a feature to a page but there is not a relevant component in the toolkit.
+	</p>
 
-      {{ pagination({
-        "previousUrl": "/nhs-components",
-        "previousPage": "NHS components",
-        "nextUrl": "/custom-components",
-        "nextPage": "Custom components"
-      }) }}
+	<p>However, there may be other government design systems that <strong>do</strong> have a relevant component, so in this section of the tutorial we will look at how you can potentially modify another services component to work with the NHS toolkit.</p>
+
+	<p>A good place to start to identify a component is this <a href="https://github.com/ctdesign/gov-design-systems-list" target="_blank">design systems list</a> (opens in a new tab).</p>
+
+	<h2>Modifying a component</h2>
+
+	<p>For this part of the tutorial, I have decided to modify the Ministry of Justice <a href="https://design-patterns.service.justice.gov.uk/components/timeline/" target="_blank">timeline component</a> (opens in a new tab).</p>
+
+	<h3>Stage one</h3>
+
+	<ul>
+		<li>take the HTML provided to us by the MOJ and paste it into our desired template</li>
+		<li>replace the moj prefix on the HTML class names to nhsuk or nhsbsa (something relevant). For example change <code>moj-timeline</code> to <code>nhsuk-timeline</code></li>
+	</ul>
+
+	<p>Below in the expander is what you are likely to see, a broken timeline:</p>
+
+	<details class="nhsuk-details nhsuk-expander">
+		<summary class="nhsuk-details__summary">
+			<span class="nhsuk-details__summary-text">
+			Stage one
+			</span>
+		</summary>
+		<div class="nhsuk-details__text">
+			<div class="moj-timeline">
+				<div class="moj-timeline__item">
+					<div class="moj-timeline__header">
+					<h2 class="moj-timeline__title">Application requires confirmation</h2>
+
+					<p class="moj-timeline__byline">by Joe Bloggs</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+					<time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+					</p>
+
+					<div class="moj-timeline__description">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non felis risus. Curabitur nec ante vitae felis ullamcorper tincidunt.</p>
+					<a class="govuk-button govuk-!-margin-bottom-0" href="#">Continue</a>
+					</div>
+				</div>
+
+				<div class="moj-timeline__item">
+
+					<div class="moj-timeline__header">
+					<h2 class="moj-timeline__title">Application review in progress</h2>
+
+					<p class="moj-timeline__byline">by Caseworker 1</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+					<time datetime="2019-06-07T12:32:00.000Z">7 June 2019 at 12:32pm</time>
+					</p>
+
+					<div class="moj-timeline__description">Your application is being reviewed by one of our case workers.</div>
+
+				</div>
+
+				<div class="moj-timeline__item">
+
+					<div class="moj-timeline__header">
+					<h2 class="moj-timeline__title">Application received</h2>
+
+					<p class="moj-timeline__byline">by Caseworker 1</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+					<time datetime="2019-06-06T09:12:00.000Z">6 June 2019 at 9:12am</time>
+					</p>
+
+					<div class="moj-timeline__description">Your application has been received – reference MOJ-1234-5678</div>
+
+				</div>
+
+				<div class="moj-timeline__item">
+
+					<div class="moj-timeline__header">
+					<h2 class="moj-timeline__title">Application submitted</h2>
+
+					<p class="moj-timeline__byline">by Joe Bloggs</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+					<time datetime="2019-05-28T10:45:00.000Z">28 May 2019 at 10:45am</time>
+					</p>
+
+					<div class="moj-timeline__description">
+					<details class="govuk-details govuk-!-margin-bottom-0">
+						<summary class="govuk-details__summary">
+						<span class="govuk-details__summary-text">
+							Application details
+						</span>
+						</summary>
+						<div class="govuk-details__text">
+						Ut quam nunc, vulputate ac metus pharetra, posuere maximus velit. <a class="govuk-link" href="#">Etiam nec interdum velit.</a> Suspendisse molestie lectus in eros ornare
+						</div>
+					</details>
+					</div>
+				</div>
+
+				<div class="moj-timeline__item">
+					<div class="moj-timeline__header">
+						<h2 class="moj-timeline__title">Documents uploaded</h2>
+
+						<p class="moj-timeline__byline">by Joe Bloggs</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+						<time datetime="2019-05-28T10:15:00.000Z">28 May 2019 at 10:15am</time>
+					</p>
+
+					<div class="moj-timeline__description">
+						<ul class="moj-timeline__documents">
+						<li class="moj-timeline__document-item">
+							<a class="govuk-link" href="#">
+							<svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+								<path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+							</svg>
+							Document 1
+							</a>
+						</li>
+						<li class="moj-timeline__document-item">
+							<a class="govuk-link" href="#">
+							<svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+								<path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+							</svg>
+							Document 2
+							</a>
+						</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="moj-timeline__item">
+					<div class="moj-timeline__header">
+						<h2 class="moj-timeline__title">Application started</h2>
+
+						<p class="moj-timeline__byline">by Joe Bloggs</p>
+
+					</div>
+
+					<p class="moj-timeline__date">
+						<time datetime="2019-05-21T13:15:00.000Z">21 May 2019 at 1:15pm</time>
+					</p>
+
+					<div class="moj-timeline__description">
+						<ul class="govuk-list govuk-list--bullet">
+						<li><a class="govuk-link" href="#">Item 1</a></li>
+						<li><a class="govuk-link" href="#">Item 2</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</details>
+
+	<hr>
+
+	<h3>Stage two</h3>
+
+	<p>You will notice how the component looks nothing like it did on the MOJ website, this is because we have no CSS. So next we will need to grab the CSS.</p>
+
+	<p>There are two ways of going about this, you can either use developer tools in the browser and manually pick out the styles, or alternatively and the preffered method would be to refer to the GitHub repository for the relevant front end toolkit, which will ensure we don't miss anything we need.</p>
+
+	<ul>
+		<li>locate the relevant GitHub repository, which is <a href="https://github.com/ministryofjustice/moj-frontend" target="_blank">MOJ Frontend</a> (opens in a new tab), and browse to the relevant directory (in this case <code>/src/moj/components/timeline</code>)</li>
+		<li>Open the associated SASS file by clicking on the file name (<code>_timeline.scss</code>) </li>
+		<li>Click on the button titled 'Raw', then select all and copy.</li>
+	</ul>
+
+	<hr>
+
+	<h3>Stage three</h3>
+
+	<p>As briefly mentioned in the introduction section of the tutorial, we will now look at creating our own SASS file.</p>
+	<p>Whilst not strictly necessary, you can just paste it into <code>app/assets/sass/main.scss</code> creating your own file will make it easier to locate and edit in the event you need to make changes afterwards.</p>
+
+	<ul>
+		<li>Create a new file in the folder <code>app/assets/sass/components</code> and name it <code>_timeline.scss</code> or something relevant</li>
+		<li>Paste all the code we previosuly copied into this file, and save.</li>
+		<li>Like we did in stage one, change the prefixes from <code>moj</code> to <code>nhsuk</code> or whichever prefix you chose in stage one</li>
+		<li>We will then need to carefully go through and replace and SASS variables such as <code>$govuk-brand-colour</code> that don't exist in our toolkit to something that will work with the NHS brand, in this instance I chose <code>$color_nhsuk-blue</code></li>
+		<li>You may also notice references to the Gov toolkit in this component exmaple, such as <code>govuk-spacing(4)</code> which can be replaced with pixel values and also <code>@include govuk-font($size: 19, $weight: bold);</code> which I will replace with 3 lines of CSS, one for the Frutiger font family, one for font size and one font weight.</li>
+		<li>We then need to import this newly created stylesheet into our main stylesheet located at <code>app/assets/sass/main.scss</code>. To do this on line 7 we would write <code>@import 'components/timeline';</code> and then save.</li>
+	</ul>
+
+	<p>What will happen now is the gulp script which is running when we ran <code>npm run watch</code> in the terminal when setting up this project will see the change we made, import all the SASS into one file, then convert the SASS into CSS and output it into a file in the public folder to be used by the <code>layout.html</code> template.</p>
+
+	<p>As mentioned in the introduction section of this tutorial, CSS stands for cascading stylesheets - hence why we put our new code on line 7 - below the other two imported style sheets to ensure that none of our code is overwritten, however unlikely thanks to our BEM naming conventions.</p>
+	
+	<p>The below expander is now how the component would look:</p>
+
+	<details class="nhsuk-details nhsuk-expander">
+	<summary class="nhsuk-details__summary">
+		<span class="nhsuk-details__summary-text">
+		Stage three
+		</span>
+	</summary>
+	<div class="nhsuk-details__text">
+		<div class="nhsuk-timeline">
+		<div class="nhsuk-timeline__item">
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Application requires confirmation</h2>
+
+			<p class="nhsuk-timeline__byline">by Joe Bloggs</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non felis risus. Curabitur nec ante vitae felis ullamcorper tincidunt.</p>
+			<a class="govuk-button govuk-!-margin-bottom-0" href="#">Continue</a>
+			</div>
+		</div>
+
+		<div class="nhsuk-timeline__item">
+
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Application review in progress</h2>
+
+			<p class="nhsuk-timeline__byline">by Caseworker 1</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-06-07T12:32:00.000Z">7 June 2019 at 12:32pm</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">Your application is being reviewed by one of our case workers.</div>
+
+		</div>
+
+		<div class="nhsuk-timeline__item">
+
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Application received</h2>
+
+			<p class="nhsuk-timeline__byline">by Caseworker 1</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-06-06T09:12:00.000Z">6 June 2019 at 9:12am</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">Your application has been received – reference nhsuk-1234-5678</div>
+
+		</div>
+
+		<div class="nhsuk-timeline__item">
+
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Application submitted</h2>
+
+			<p class="nhsuk-timeline__byline">by Joe Bloggs</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-05-28T10:45:00.000Z">28 May 2019 at 10:45am</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">
+			<details class="govuk-details govuk-!-margin-bottom-0">
+			<summary class="govuk-details__summary">
+			<span class="govuk-details__summary-text">
+				Application details
+			</span>
+			</summary>
+			<div class="govuk-details__text">
+			Ut quam nunc, vulputate ac metus pharetra, posuere maximus velit. <a class="govuk-link" href="#">Etiam nec interdum velit.</a> Suspendisse molestie lectus in eros ornare
+			</div>
+			</details>
+			</div>
+		</div>
+
+		<div class="nhsuk-timeline__item">
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Documents uploaded</h2>
+
+			<p class="nhsuk-timeline__byline">by Joe Bloggs</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-05-28T10:15:00.000Z">28 May 2019 at 10:15am</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">
+			<ul class="nhsuk-timeline__documents">
+			<li class="nhsuk-timeline__document-item">
+				<a class="govuk-link" href="#">
+				<svg class="nhsuk-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+				<path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+				</svg>
+				Document 1
+				</a>
+			</li>
+			<li class="nhsuk-timeline__document-item">
+				<a class="govuk-link" href="#">
+				<svg class="nhsuk-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+				<path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+				</svg>
+				Document 2
+				</a>
+			</li>
+			</ul>
+			</div>
+		</div>
+
+		<div class="nhsuk-timeline__item">
+			<div class="nhsuk-timeline__header">
+			<h2 class="nhsuk-timeline__title">Application started</h2>
+
+			<p class="nhsuk-timeline__byline">by Joe Bloggs</p>
+
+			</div>
+
+			<p class="nhsuk-timeline__date">
+			<time datetime="2019-05-21T13:15:00.000Z">21 May 2019 at 1:15pm</time>
+			</p>
+
+			<div class="nhsuk-timeline__description">
+			<ul class="govuk-list govuk-list--bullet">
+			<li><a class="govuk-link" href="#">Item 1</a></li>
+			<li><a class="govuk-link" href="#">Item 2</a></li>
+			</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+	</details>
+
+	{{ pagination({
+	"previousUrl": "/nhs-components",
+	"previousPage": "NHS components",
+	"nextUrl": "/custom-components",
+	"nextPage": "Custom components"
+	}) }}
 
     </div>
   </div>
