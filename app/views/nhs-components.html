@@ -51,8 +51,20 @@
       }) }}
 
       <p>
-        [Page content goes here]
+        For the most part, this section is pretty straight forward. The only thing to consider, which is likely only for a developer to worry about is whether to use the HTML or Nunjucks when using a component from the component library.
       </p>
+
+      <p>The prototype kit which you will be using allows you to use both, however some other projects that might be built in Java or static HTML sites you may be limited to using just the HTML blocks of code.</p>
+
+      <p>For the sake of simplicity of this tutorial going forward we will use HTML.</p>
+
+      <p>To use the components head to the 'component library' which can be accessed from the <a href="https://service-manual.nhs.uk/design-system/components" target="_blank">service manual</a> (opens in a new tab), select the relevant component from the menu, and copy and paste the block of code into the relevent temlpate.</p>
+
+      <p>For example, if I wanted to add a 'Date input' to this page, I would copy the HTML for a date input from the service manual, find the template for this page found in <code>app/views/nhs-components.html</code> and paste it.</p>
+
+      <p>Please feel free to open the file mentioned above in your code editor and paste in a component of your choice.</p>
+
+      <!-- Paste your component on the line below -->
 
       {{ pagination({
         "previousUrl": "/introduction",
