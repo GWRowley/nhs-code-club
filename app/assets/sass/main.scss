@@ -5,6 +5,7 @@
 @import 'components/list-border';
 @import 'components/related-nav';
 @import 'components/timeline';
+@import 'components/notification-card';
 
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below...
@@ -13,6 +14,7 @@
 pre {
     background-color: #fff;
     border: 1px solid #aeb7bd;
+    overflow-x: scroll;
 }
 
 p code,

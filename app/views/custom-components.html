@@ -1,64 +1,219 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-  Custom components - Code club
+Custom components - Code club
 {% endblock %}
 
 {% block beforeContent %}
-  {{ breadcrumb({
-    items: [
-      {
-        href: "/",
-        text: "Home"
-      }
-    ],
-    href: "/introduction",
-    text: "Introduction"
-  }) }}
+{{ breadcrumb({
+items: [
+	{
+	href: "/",
+	text: "Home"
+	}
+],
+href: "/introduction",
+text: "Introduction"
+}) }}
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="nhsuk-grid-row">
+	<div class="nhsuk-grid-column-two-thirds">
 
-      <h1>
-        Custom components
-        <span class="nhsuk-caption-xl nhsuk-caption--bottom ">
-          Using components and custom SASS/CSS
-        </span>
-      </h1>
+		<h1>
+		Custom components
+		<span class="nhsuk-caption-xl nhsuk-caption--bottom ">
+			Using components and custom SASS/CSS
+		</span>
+		</h1>
 
-      {{ contentsList({
-        items: [
-          {
-            href: "/introduction",
-            text: "Introduction"            
-          },
-          {
-            href: "/nhs-components",
-            text: "NHS components"            
-          },
-          {
-            href: "/modifying-components",
-            text: "Modifying components"
-          },
-          {
-            href: "/custom-components",
-            text: "Custom components",
-            current: "true"
-          }
-        ]
-      }) }}
+		{{ contentsList({
+		items: [
+			{
+			href: "/introduction",
+			text: "Introduction"            
+			},
+			{
+			href: "/nhs-components",
+			text: "NHS components"            
+			},
+			{
+			href: "/modifying-components",
+			text: "Modifying components"
+			},
+			{
+			href: "/custom-components",
+			text: "Custom components",
+			current: "true"
+			}
+		]
+		}) }}
 
-      <p>
-        [Page content goes here]
-      </p>
+		<p>
+		There may also be a time when you have an idea for a component, and there isn't something already out there for you to use. 
+		</p>
 
+		<p>If that is the case you may opt to build a custom component of your own. To do so is very similar to modifying an existing component.</p>
+
+		<p>For prototyping purposes as its likely unecessary, and for the purpose of this tutorial we will only look at the HTML side of a custom component rather than Nunjucks.</p>
+
+		<p>For this part of the tutorial I am going to a build a very simple 'notification card' similar to what you might see when you get a notifcation on Facebook on a desktop.</p>
+
+
+		<h2>Stage one</h2>
+
+		<p>Stage one would be to create a basic 'sketch' of my component:</p>
+
+		<figure class="nhsuk-image">
+			<img class="nhsuk-image__img" src="/images/component-example.png" alt="Rough mockup of a notification card component">
+		</figure>
+
+		<hr>
+
+		<h2>Stage two</h2>
+
+		<p>The next stage will be to build the structure in HTML.</p>
+
+		<p>As you can see, if you break down the above design, it will need an outer 'container' and two 'inner containers'. One will act as the 'header' which contains notification title, time, and close icon. The other will be the 'body' which will contain information about the notification. Below is an example of how I would build the structure of the component.</p>
+<pre>
+	<code>
+	&lt;div class="nhsuk-notification-card"&gt;
+		&lt;div class="nhsuk-notification-card__header"&gt;
+			&lt;p class="nhsuk-notification-card__title"&gt;Notification&lt;/p&gt;
+			&lt;p class="nhsuk-notification-card__time"&gt;10 mins ago&lt;/p&gt;
+			&lt;button type="button" class="nhsuk-notication-card__close" aria-label="Close"&gt;
+				&lt;svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27"&gt;
+					&lt;path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"&gt;&lt;/path&gt;
+				&lt;/svg&gt;
+			&lt;/button&gt;
+		&lt;/div>
+
+		&lt;div class="nhsuk-notification-card__body"&gt;
+			&lt;p&gt;George added a new patient.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div>
+	</code>
+</pre>
+
+	<p>As you may have noticed, I have used the close icon provided by the NHS toolkit, the next step would be to look at other components similar in style I can reference to make sure my component is on brand and consistent with the look of the other components.</p>
+
+	<p>Firstly, here is how the component currently looks:</p>
+
+	<details class="nhsuk-details nhsuk-expander">
+		<summary class="nhsuk-details__summary">
+			<span class="nhsuk-details__summary-text">
+				Stage two
+			</span>
+		</summary>
+		<div class="nhsuk-details__text">
+			<div class="nhsuk-notification-card1">
+				<div class="nhsuk-notification-card__header1">
+					<p class="nhsuk-notification-card__title1">Notification</p>
+					<p class="nhsuk-notification-card__time1">10 mins ago</p>
+					<button type="button" class="nhsuk-notication-card__close1" aria-label="Close">
+						<svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+							<path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+						</svg>
+					</button>
+				</div>
+
+				<div class="nhsuk-notification-card__body1">
+					<p>George added a new patient.</p>
+				</div>
+			</div>
+		</div>
+	</details>
+
+	<hr>
+
+	<h2>Stage three</h2>
+
+	<p>The next stage will be style the component accordingly.</p>
+
+	<p>My initial design is similar to the existing card component, so will use that for inspiration and take some of the styles for that component to use as my own. Like the modifying a component section of this tutorial first we must do the following:</p>
+
+	<ul>
+		<li>create a SASS stylesheet inside of the <code>assets/sass/components</code> directory, I will call this <code>_notification-card.scss</code></li>
+		<li>import the newly created stylesheet into <code>assets/sass/main.scss</code></li>
+	</ul>
+
+	<p>Once we have a dedicated stylesheet we can begin adding our own styles. As mentioned earlier, I can use the GitHub repository for the card component to take the bits I need and build upon it accordingly.</p>
+
+	<p>Another important note is making sure it works across all devices with the use of media queries.</p>
+
+	<p>Here is the finished component (Please note the close button is not functioning - will require javascript):</p>
+
+	<div class="nhsuk-notification-card">
+		<div class="nhsuk-notification-card__header">
+			<p class="nhsuk-notification-card__title">Notification</p>
+			<p class="nhsuk-notification-card__time">10 mins ago</p>
+			<button type="button" class="nhsuk-notication-card__close" aria-label="Close">
+				<svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+					<path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+				</svg>
+			</button>
+		</div>
+
+		<div class="nhsuk-notification-card__body">
+			<p>George added a new patient.</p>
+		</div>
+	</div>
+
+	<p>Here is the SASS:</p>
+
+<pre><code>
+	.nhsuk-notification-card {
+		background: $color_nhsuk-white;
+		border: 1px solid $nhsuk-border-color;
+		position: relative;
+		width: 100%;
+		margin-bottom: 40px;
+		.nhsuk-notification-card__header {
+			display: flex;
+			align-items: center;
+			padding: 16px 32px;
+			border-bottom: 1px solid $nhsuk-border-color;
+			.nhsuk-notification-card__title {
+				font-family: Frutiger W01, Arial, sans-serif;
+				font-size: 22px;
+				font-weight: 700;
+				margin-right: auto;
+				margin-bottom: 0px;
+			}
+			.nhsuk-notification-card__time{
+				font-family: Frutiger W01, Arial, sans-serif;
+				font-size: 16px;
+				color: $nhsuk-secondary-text-color;
+				margin-bottom: 0px;
+			}
+			.nhsuk-notication-card__close {
+				cursor: pointer;
+				margin-left: 10px;
+				padding: 0px;
+				background-color: transparent;
+				border: 0px;
+
+			}
+		}
+		.nhsuk-notification-card__body {
+			padding: 16px 32px;
+			p:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+	}
+</code></pre>
+
+
+
+
+	
       {{ pagination({
         "previousUrl": "/modifying-components",
         "previousPage": "Modifying components"
       }) }}
 
     </div>
-  </div>
+</div>
 {% endblock %}

@@ -7569,9 +7569,50 @@ b {
   color: #212b32;
 }
 
+.nhsuk-notification-card {
+  background: #ffffff;
+  border: 1px solid #d8dde0;
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.nhsuk-notification-card .nhsuk-notification-card__header {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid #d8dde0;
+}
+.nhsuk-notification-card .nhsuk-notification-card__header .nhsuk-notification-card__title {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+.nhsuk-notification-card .nhsuk-notification-card__header .nhsuk-notification-card__time {
+  font-family: Frutiger W01, Arial, sans-serif;
+  font-size: 16px;
+  color: #4c6272;
+  margin-bottom: 0px;
+}
+.nhsuk-notification-card .nhsuk-notification-card__header .nhsuk-notication-card__close {
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0px;
+  background-color: transparent;
+  border: 0px;
+}
+.nhsuk-notification-card .nhsuk-notification-card__body {
+  padding: 16px 32px;
+}
+.nhsuk-notification-card .nhsuk-notification-card__body p:last-of-type {
+  margin-bottom: 0px;
+}
+
 pre {
   background-color: #fff;
   border: 1px solid #aeb7bd;
+  overflow-x: scroll;
 }
 
 p code,
